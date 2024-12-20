@@ -11,7 +11,7 @@ class TgBot:
 @dataclass
 class API:
     key: str
-    host: str
+    base_url: str
 
 
 @dataclass
@@ -26,7 +26,7 @@ def load_config(path: str | None = None) -> Config:
 
     return Config(
         tg_bot=TgBot(token=env.str("BOT_TOKEN")),
-        api=API(key=env.str("RAPIDAPI_KEY"), host=env.str("BASE_URL"))
+        api=API(key=env.str("API_KEY"), base_url=env.str("BASE_URL"))
     )
 
 
