@@ -5,7 +5,8 @@ from logging import Logger
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 
-from bot import load_data
+import handlers
+import load_data
 
 logger: Logger = logging.getLogger(__name__)
 logging.basicConfig(
@@ -20,6 +21,8 @@ async def main(bot_token: str) -> None:
 
     bot: Bot = Bot(token=bot_token, properties=DefaultBotProperties(parse_mode="HTML"))
     dp: Dispatcher = Dispatcher()
+
+    dp.include_router(handlers.user_router)
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
