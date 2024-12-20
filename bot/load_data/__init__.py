@@ -1,0 +1,1 @@
+from .loadf_from_env import tg_bot
