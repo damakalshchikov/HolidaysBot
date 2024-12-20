@@ -1,1 +1,1 @@
-from .loadf_from_env import tg_bot
+from .loadf_from_env import API, api, tg_bot
